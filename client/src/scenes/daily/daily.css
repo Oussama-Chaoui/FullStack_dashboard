@@ -1,0 +1,13 @@
+.darkDatePicker {
+  background-color: #4d547d;
+  padding: 1rem 0 1rem 1rem;
+  border-radius: 5px;
+  border: none;
+  color: white;
+}
+
+.lightDatePicker {
+  padding: 1rem 0 1rem 1rem;
+  border-radius: 5px;
+  border: 1px solid black;
+}
