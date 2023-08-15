@@ -10,7 +10,6 @@ const EditToolbar = ({}) => {
   const handleClose = () => setOpen(false);
 
   const handleClick = () => {
-    console.log("clicked");
     setOpen(true);
   };
 

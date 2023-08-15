@@ -35,8 +35,6 @@ export const getAdmins = async (req, res) => {
       }
     }
 
-    console.log(query);
-
     const admins = await User.find(query)
       .select("-password")
       .sort({ updatedAt: -1 });
@@ -85,7 +83,6 @@ export const editAdminStatus = async (req, res) => {
     } = req.body;
 
     if (ticketId === "") {
-      console.log("I'm inside the first case where TicketId is empty");
       const currentDate = startDate === null ? new Date() : startDate;
 
       const existingUser = await User.findById(userId);
@@ -98,10 +95,8 @@ export const editAdminStatus = async (req, res) => {
       let parsedStartDate;
       if (typeof endDate === "string") {
         parsedEndDate = endOfDay(new Date(endDate));
-        console.log(parsedEndDate);
       } else {
         parsedEndDate = endOfDay(endDate); // Assuming endDate is already a Date object
-        console.log(parsedEndDate);
       }
 
       if (typeof currentDate === "string") {
@@ -135,8 +130,6 @@ export const editAdminStatus = async (req, res) => {
       });
       res.status(201).json({ message: "User updated successfully" });
     } else {
-      console.log("I'm inside the first case where TicketId is not empty");
-
       const ticket = await Ticket.findById(ticketId);
 
       if (ticketStatus === "approved") {
@@ -147,11 +140,9 @@ export const editAdminStatus = async (req, res) => {
 
         // Round the start date to the beginning of the day (00:00:00)
         const roundedStartDate = ticket.startDate;
-        console.log(roundedStartDate);
 
         // Floor the end date to the end of the day (23:59:59)
         const flooredEndDate = ticket.endDate;
-        console.log(flooredEndDate);
 
         // Get all dates between startDate and endDate (inclusive)
         const allDates = eachDayOfInterval({
@@ -164,7 +155,6 @@ export const editAdminStatus = async (req, res) => {
 
         // Calculate the number of weekdays to reduce from vCredit
         const daysToReduce = weekdays.length;
-        console.log(daysToReduce);
 
         // Subtract the number of days from vCredit
         if (daysToReduce >= 0 && existingUser.vCredit >= daysToReduce) {
@@ -467,7 +457,7 @@ export const getUserPerformance = async (req, res) => {
 
     const salesTransactions = await Promise.all(
       userWithStats[0].affiliatestats.affiliateSales.map((id) => {
-        return Transaction .findById(id);
+        return Transaction.findById(id);
       })
     );
 

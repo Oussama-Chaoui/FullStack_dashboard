@@ -47,7 +47,6 @@ const AddTicketModal = ({ open, handleClose, user }) => {
   const [vacationMaxDays, setVacationMaxDays] = useState(0);
 
   const roundedStartDate = startOfDay(vacationStartDate);
-  console.log(roundedStartDate);
 
   const [vacationStartDateError, setVacationStartDateError] = useState(null);
 
@@ -360,7 +359,7 @@ const AddTicketModal = ({ open, handleClose, user }) => {
           </Box>
         )}
 
-        {/* Box with the ALREADY EXISTING USER choice */}
+        {/* Box with the Sick leave choice */}
         {choice === "sick leave" && (
           <Box display="flex" justifyContent="space-between">
             <Button
@@ -399,7 +398,7 @@ const AddTicketModal = ({ open, handleClose, user }) => {
           </Box>
         )}
 
-        {/* Box with the choice MANUAL  */}
+        {/* Box with the vacation choice  */}
         {choice === "vacation" && (
           <Box display="flex" justifyContent="space-between">
             <Button
@@ -415,23 +414,23 @@ const AddTicketModal = ({ open, handleClose, user }) => {
             </Button>
 
             <Button
-              // disabled={
-              //   vacationStartDate === null ||
-              //   JSON.stringify(vacationStartDate) === "null" ||
-              //   vacationEndDate === null ||
-              //   JSON.stringify(vacationEndDate) === "null" ||
-              //   isBefore(
-              //     new Date(vacationEndDate),
-              //     new Date(vacationStartDate)
-              //   ) ||
-              //   isBefore(new Date(vacationStartDate), new Date()) ||
-              //   isBefore(new Date(vacationEndDate), new Date()) ||
-              //   isSameDay(new Date(vacationStartDate), new Date()) || // Check if dates are the same day
-              //   isSameDay(new Date(vacationEndDate), new Date()) || // Check if dates are the same day
-              //   vacationEndDateError !== null ||
-              //   vacationStartDateError !== null ||
-              //   user.data.vCredit === 0
-              // }
+              disabled={
+                vacationStartDate === null ||
+                JSON.stringify(vacationStartDate) === "null" ||
+                vacationEndDate === null ||
+                JSON.stringify(vacationEndDate) === "null" ||
+                isBefore(
+                  new Date(vacationEndDate),
+                  new Date(vacationStartDate)
+                ) ||
+                isBefore(new Date(vacationStartDate), new Date()) ||
+                isBefore(new Date(vacationEndDate), new Date()) ||
+                isSameDay(new Date(vacationStartDate), new Date()) ||
+                isSameDay(new Date(vacationEndDate), new Date()) ||
+                vacationEndDateError !== null ||
+                vacationStartDateError !== null ||
+                user.data.vCredit === 0
+              }
               sx={
                 theme.palette.mode === "dark"
                   ? { color: "white" }

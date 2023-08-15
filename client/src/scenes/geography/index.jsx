@@ -9,7 +9,6 @@ import Header from "components/Header";
 const Geography = () => {
   const theme = useTheme();
   const { data } = useGetGeographyQuery();
-  console.log(theme);
 
   return (
     <Box m="1.5rem 2.5rem">

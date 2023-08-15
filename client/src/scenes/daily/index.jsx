@@ -14,13 +14,10 @@ const Daily = () => {
 
   const { data } = useGetSalesQuery();
 
-  console.log(data);
-
   const [formattedData] = useMemo(() => {
     if (!data) return [];
 
     const { dailyData } = data;
-    console.log(dailyData);
 
     const totalSalesLine = {
       id: "totalSales",

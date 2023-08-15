@@ -28,7 +28,6 @@ const MyTickets = ({ user }) => {
   const { id } = useParams();
   const theme = useTheme();
   const { data, isLoading } = useGetUserTicketsQuery({ userId: user.data._id });
-  console.log("im inside this embeded jsx");
 
   const handleDetailedTime = (timestamp) => {
     const date = new Date(timestamp);
@@ -79,7 +78,6 @@ const MyTickets = ({ user }) => {
   const handleClose = () => setOpen(false);
 
   const handleClick = () => {
-    console.log("clicked");
     setOpen(true);
   };
 

@@ -17,15 +17,11 @@ const InactiveAdmin = ({ user }) => {
     status: "approved",
   });
 
-  console.log(data);
-
   const nonExpiredTickets =
     data &&
     data.filter(
       (ticket) => !ticket.isExpired && ticket.user.status !== "active"
     );
-
-  console.log(nonExpiredTickets);
 
   const theme = useTheme();
 
@@ -72,7 +68,6 @@ const InactiveAdmin = ({ user }) => {
         return status;
       },
       renderCell: (params) => {
-        console.log(params);
         if (params.row !== undefined) return <StatusField params={params} />;
       },
     },

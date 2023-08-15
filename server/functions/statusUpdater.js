@@ -17,8 +17,6 @@ const statusUpdater = async () => {
       isExpired: false,
     });
 
-    console.log(expiredTickets);
-
     if (expiredTickets.length === 0) {
       console.log("No expired tickets found.");
       return; // Exit the function if there are no expired tickets to process

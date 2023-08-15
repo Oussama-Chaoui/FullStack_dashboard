@@ -37,7 +37,6 @@ const Tickets = ({ user }) => {
   const handleClose = () => setOpen(false);
 
   const handleClick = () => {
-    console.log("clicked");
     setOpen(true);
   };
 
@@ -67,7 +66,6 @@ const Tickets = ({ user }) => {
   }
 
   if (user.data.role === "admin") {
-    console.log("im inside this jsx");
     const hasPendingTicket =
       data !== null
         ? data && data?.some((ticket) => ticket.status === "pending")

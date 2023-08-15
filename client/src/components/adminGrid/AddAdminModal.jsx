@@ -75,7 +75,6 @@ const AddAdminModal = ({ open, handleClose }) => {
     handleClose();
   };
 
-  console.log(country);
   const handleRoleChange = (e) => {
     setSelectedRole(e.target.value);
   };

@@ -24,7 +24,6 @@ const SuspendAdminModal = ({ open, handleClose, id }) => {
 
   const theme = useTheme();
 
-  console.log(endDate);
 
   const handleApply = () => {
     editAdminStatus({
